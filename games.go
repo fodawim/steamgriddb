@@ -30,6 +30,7 @@ type GameServiceOp struct {
 	client *Client
 }
 
+// ByID returns a game using its SteamGridDB ID.
 func (s *GameServiceOp) ByID(id string) (*Game, error) {
 	path := fmt.Sprintf("games/id/%s", id)
 	game := new(GameResponse)
@@ -37,6 +38,7 @@ func (s *GameServiceOp) ByID(id string) (*Game, error) {
 	return game.Game, err
 }
 
+// BySteamID returns a game using its Steam ID.
 func (s *GameServiceOp) BySteamID(id string) (*Game, error) {
 	panic("not implemented") // TODO: Implement
 }

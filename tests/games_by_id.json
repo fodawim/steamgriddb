@@ -1,0 +1,11 @@
+{
+  "success": true,
+  "data": {
+    "id": 123456789,
+    "name": "Counter-Strike: Global Offensive",
+    "types": [
+      "steam"
+    ],
+    "verified": true
+  }
+}
