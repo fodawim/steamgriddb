@@ -8,7 +8,7 @@ import (
 type GameService interface {
 	// ByID returns a game by its SteamGridDB ID.
 	ByID(id string) (*Game, error)
-	// BySteamID returns a game by its Steam ID.
+	// BySteamID returns a game by its Steam App ID.
 	BySteamID(id string) (*Game, error)
 }
 
@@ -38,7 +38,10 @@ func (s *GameServiceOp) ByID(id string) (*Game, error) {
 	return game.Game, err
 }
 
-// BySteamID returns a game using its Steam ID.
+// BySteamID returns a game using its Steam App ID.
 func (s *GameServiceOp) BySteamID(id string) (*Game, error) {
-	panic("not implemented") // TODO: Implement
+	path := fmt.Sprintf("games/steam/%s", id)
+	game := new(GameResponse)
+	err := s.client.Get(path, game)
+	return game.Game, err
 }

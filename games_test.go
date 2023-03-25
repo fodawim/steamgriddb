@@ -39,3 +39,31 @@ func TestGameServiceOpByID(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, expectedGame, game)
 }
+
+func TestGameServiceOpBySteamID(t *testing.T) {
+	setupTests()
+	defer teardownTests()
+
+	httpmock.RegisterResponder(
+		http.MethodGet,
+		"https://www.steamgriddb.com/api/v2/games/steam/123456789",
+		httpmock.NewBytesResponder(
+			http.StatusOK,
+			loadTest("games_by_id.json"),
+		),
+	)
+
+	game, err := client.Games.BySteamID(strconv.Itoa(expectedGameID))
+
+	expectedGame := &Game{
+		ID:   expectedGameID,
+		Name: "Counter-Strike: Global Offensive",
+		Types: []string{
+			"steam",
+		},
+		Verified: true,
+	}
+
+	assert.NoError(t, err)
+	assert.Equal(t, expectedGame, game)
+}
