@@ -35,6 +35,7 @@ type Client struct {
 
 	// Services used for talking to different parts of the SteamGridDB api.
 	Games GameService
+	Grids GridService
 }
 
 // NewClient returns a new SteamGridDB api client.
@@ -54,18 +55,19 @@ func NewClient(app *App) (*Client, error) {
 
 	// Setup services
 	client.Games = &GameServiceOp{client: client}
+	client.Grids = &GridServiceOp{client: client}
 
 	return client, nil
 }
 
 // Get sends a GET request to the API and returns the response.
-func (c *Client) Get(path string, res interface{}) error {
-	return c.Execute(http.MethodGet, path, nil, res)
+func (c *Client) Get(path string, res, opts interface{}) error {
+	return c.Execute(http.MethodGet, path, nil, opts, res)
 }
 
 // Execute creates a request and sends it to the API, then returns the data or errors.
-func (c *Client) Execute(method, path string, body, res interface{}) error {
-	request, err := c.NewRequest(method, path, body)
+func (c *Client) Execute(method, path string, body, opts, res interface{}) error {
+	request, err := c.NewRequest(method, path, body, opts)
 	if err != nil {
 		return err
 	}
@@ -74,13 +76,17 @@ func (c *Client) Execute(method, path string, body, res interface{}) error {
 
 // NewRequest creates an API request. A relative URL can be provided in urlStr, in which case it is resolved relative
 // to the BaseURL of the Client.
-func (c *Client) NewRequest(method, path string, body interface{}) (*http.Request, error) {
+func (c *Client) NewRequest(method, path string, body, opts interface{}) (*http.Request, error) {
 	// Parse the URL
 	providedURL, err := c.baseURL.Parse(path)
 	if err != nil {
 		return nil, err
 	}
 	u := c.baseURL.ResolveReference(providedURL)
+
+	if opts != nil {
+
+	}
 
 	// Prepare the request body
 	var bodyData []byte

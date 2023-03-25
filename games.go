@@ -34,7 +34,7 @@ type GameServiceOp struct {
 func (s *GameServiceOp) ByID(id string) (*Game, error) {
 	path := fmt.Sprintf("games/id/%s", id)
 	game := new(GameResponse)
-	err := s.client.Get(path, game)
+	err := s.client.Get(path, game, nil)
 	return game.Game, err
 }
 
@@ -42,6 +42,6 @@ func (s *GameServiceOp) ByID(id string) (*Game, error) {
 func (s *GameServiceOp) BySteamID(id string) (*Game, error) {
 	path := fmt.Sprintf("games/steam/%s", id)
 	game := new(GameResponse)
-	err := s.client.Get(path, game)
+	err := s.client.Get(path, game, nil)
 	return game.Game, err
 }
