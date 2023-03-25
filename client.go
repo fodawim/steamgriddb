@@ -120,12 +120,6 @@ func (c *Client) Do(req *http.Request, v interface{}) error {
 		return err
 	}
 
-	// Decode the response
-	err = json.NewDecoder(resp.Body).Decode(v)
-	if err != nil {
-		return err
-	}
-
 	// Data based error handling
 	baseError := ResponseError{}
 	bodyData, err := io.ReadAll(resp.Body)
@@ -141,6 +135,12 @@ func (c *Client) Do(req *http.Request, v interface{}) error {
 		if !baseError.Success {
 			return &baseError
 		}
+	}
+
+	// Decode the response
+	err = json.NewDecoder(bytes.NewReader(bodyData)).Decode(v)
+	if err != nil {
+		return err
 	}
 
 	return err
