@@ -21,8 +21,7 @@ func TestGridServiceByID(t *testing.T) {
 	)
 
 	grids, err := client.Grids.ByID("123456789", nil)
-
-	expectedGrid := Grid{
+	expectedImage := Image{
 		ID:        123456789,
 		Score:     0,
 		Style:     StyleAlternate,
@@ -47,7 +46,7 @@ func TestGridServiceByID(t *testing.T) {
 
 	if assert.NoError(t, err) {
 		assert.Equal(t, 1, len(grids))
-		assert.Equal(t, expectedGrid, grids[0])
+		assert.Equal(t, expectedImage, grids[0])
 	}
 
 }
@@ -67,7 +66,7 @@ func TestGridServiceByPlatformID(t *testing.T) {
 
 	grids, err := client.Grids.ByPlatformID(PlatformSteam, []string{"123456789"}, nil)
 
-	expectedGrid := Grid{
+	expectedImage := Image{
 		ID:        123456789,
 		Score:     0,
 		Style:     StyleAlternate,
@@ -92,7 +91,7 @@ func TestGridServiceByPlatformID(t *testing.T) {
 
 	if assert.NoError(t, err) {
 		assert.Equal(t, 1, len(grids))
-		assert.Equal(t, expectedGrid, grids[0])
+		assert.Equal(t, expectedImage, grids[0])
 	}
 
 }

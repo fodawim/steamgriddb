@@ -34,8 +34,9 @@ type Client struct {
 	baseURL *url.URL
 
 	// Services used for talking to different parts of the SteamGridDB api.
-	Games GameService
-	Grids GridService
+	Games  GameService
+	Grids  GridService
+	Heroes HeroService
 }
 
 // NewClient returns a new SteamGridDB api client.
@@ -56,6 +57,7 @@ func NewClient(app *App) (*Client, error) {
 	// Setup services
 	client.Games = &GameServiceOp{client: client}
 	client.Grids = &GridServiceOp{client: client}
+	client.Heroes = &HeroServiceOp{client: client}
 
 	return client, nil
 }

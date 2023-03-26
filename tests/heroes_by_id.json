@@ -1,0 +1,28 @@
+{
+  "success": true,
+  "data": [
+    {
+      "id": 123456789,
+      "score": 0,
+      "style": "alternate",
+      "width": 1920,
+      "height": 620,
+      "nsfw": false,
+      "humor": false,
+      "notes": null,
+      "mime": "image/png",
+      "language": "en",
+      "url": "https://cdn2.steamgriddb.com/file/sgdb-cdn/hero/b.png",
+      "thumb": "https://cdn2.steamgriddb.com/file/sgdb-cdn/hero_thumb/b.jpg",
+      "lock": false,
+      "epilepsy": false,
+      "upvotes": 0,
+      "downvotes": 0,
+      "author": {
+        "name": "Test Author",
+        "steam64": "1234512345",
+        "avatar": "https://avatars.akamai.steamstatic.com/2.jpg"
+      }
+    }
+  ]
+}
