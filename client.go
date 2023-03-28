@@ -38,6 +38,7 @@ type Client struct {
 	Grids  GridService
 	Heroes HeroService
 	Logos  LogoService
+	Icons  IconService
 }
 
 // NewClient returns a new SteamGridDB api client.
@@ -60,6 +61,7 @@ func NewClient(app *App) (*Client, error) {
 	client.Grids = &GridServiceOp{client: client}
 	client.Heroes = &HeroServiceOp{client: client}
 	client.Logos = &LogoServiceOp{client: client}
+	client.Icons = &IconServiceOp{client: client}
 
 	return client, nil
 }
