@@ -20,8 +20,8 @@ func TestIconServiceByID(t *testing.T) {
 		),
 	)
 
-	logos, err := client.Icons.ByID("123456789", nil)
-	expectedLogo := Icon{
+	icons, err := client.Icons.ByID("123456789", nil)
+	expectedIcon := Icon{
 		ID:        123456789,
 		Score:     0,
 		Style:     StylesIconOfficial,
@@ -46,8 +46,8 @@ func TestIconServiceByID(t *testing.T) {
 	}
 
 	if assert.NoError(t, err) {
-		assert.Equal(t, 1, len(logos))
-		assert.Equal(t, expectedLogo, logos[0])
+		assert.Equal(t, 1, len(icons))
+		assert.Equal(t, expectedIcon, icons[0])
 	}
 
 }
@@ -65,8 +65,8 @@ func TestIconServiceByPlatformID(t *testing.T) {
 		),
 	)
 
-	logos, err := client.Icons.ByPlatformID(PlatformSteam, []string{"123456789"}, nil)
-	expectedLogo := Icon{
+	icons, err := client.Icons.ByPlatformID(PlatformSteam, []string{"123456789"}, nil)
+	expectedIcon := Icon{
 		ID:        123456789,
 		Score:     0,
 		Style:     StylesIconOfficial,
@@ -91,8 +91,8 @@ func TestIconServiceByPlatformID(t *testing.T) {
 	}
 
 	if assert.NoError(t, err) {
-		assert.Equal(t, 1, len(logos))
-		assert.Equal(t, expectedLogo, logos[0])
+		assert.Equal(t, 1, len(icons))
+		assert.Equal(t, expectedIcon, icons[0])
 	}
 
 }

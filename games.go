@@ -14,10 +14,11 @@ type GameService interface {
 
 // Game represents a game on SteamGridDB.
 type Game struct {
-	ID       int      `json:"id"`
-	Name     string   `json:"name"`
-	Types    []string `json:"types"`
-	Verified bool     `json:"verified"`
+	ID          int      `json:"id"`
+	Name        string   `json:"name"`
+	Types       []string `json:"types"`
+	Verified    bool     `json:"verified"`
+	ReleaseDate int      `json:"release_date,omitempty"`
 }
 
 // GameResponse represents a response from the SteamGridDB api.

@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "data": [
+    {
+      "types": [],
+      "id": 12345,
+      "name": "Test Game",
+      "verified": true,
+      "release_date": 1224547200
+    }
+  ]
+}
