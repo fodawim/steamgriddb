@@ -21,7 +21,7 @@ func TestGridServiceByID(t *testing.T) {
 	)
 
 	grids, err := client.Grids.ByID("123456789", nil)
-	expectedImage := Image{
+	expectedImage := Grid{
 		ID:        123456789,
 		Score:     0,
 		Style:     StyleAlternate,
@@ -66,7 +66,7 @@ func TestGridServiceByPlatformID(t *testing.T) {
 
 	grids, err := client.Grids.ByPlatformID(PlatformSteam, []string{"123456789"}, nil)
 
-	expectedImage := Image{
+	expectedImage := Grid{
 		ID:        123456789,
 		Score:     0,
 		Style:     StyleAlternate,

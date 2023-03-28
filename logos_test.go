@@ -21,15 +21,15 @@ func TestLogoServiceByID(t *testing.T) {
 	)
 
 	logos, err := client.Logos.ByID("123456789", nil)
-	expectedLogo := Image{
+	expectedLogo := Logo{
 		ID:        123456789,
 		Score:     0,
-		Style:     StyleOfficial,
+		Style:     StylesLogoOfficial,
 		Width:     9000,
 		Height:    1000,
 		Nsfw:      false,
 		Humor:     false,
-		Mime:      MimePNG,
+		Mime:      MimeLogoPNG,
 		Language:  "en",
 		URL:       "https://cdn2.steamgriddb.com/file/sgdb-cdn/logo/3.png",
 		Thumb:     "https://cdn2.steamgriddb.com/file/sgdb-cdn/logo_thumb/3.png",
@@ -65,15 +65,15 @@ func TestLogoServiceByPlatformID(t *testing.T) {
 	)
 
 	logos, err := client.Logos.ByPlatformID(PlatformSteam, []string{"123456789"}, nil)
-	expectedLogo := Image{
+	expectedLogo := Logo{
 		ID:        123456789,
 		Score:     0,
-		Style:     StyleOfficial,
+		Style:     StylesLogoOfficial,
 		Width:     9000,
 		Height:    1000,
 		Nsfw:      false,
 		Humor:     false,
-		Mime:      MimePNG,
+		Mime:      MimeLogoPNG,
 		Language:  "en",
 		URL:       "https://cdn2.steamgriddb.com/file/sgdb-cdn/logo/3.png",
 		Thumb:     "https://cdn2.steamgriddb.com/file/sgdb-cdn/logo_thumb/3.png",

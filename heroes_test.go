@@ -21,15 +21,15 @@ func TestHeroServiceByID(t *testing.T) {
 	)
 
 	heroes, err := client.Heroes.ByID("123456789", nil)
-	expectedImage := Image{
+	expectedImage := Hero{
 		ID:        123456789,
 		Score:     0,
-		Style:     StyleAlternate,
+		Style:     StylesHeroAlternate,
 		Width:     1920,
 		Height:    620,
 		Nsfw:      false,
 		Humor:     false,
-		Mime:      MimePNG,
+		Mime:      MimeHeroPNG,
 		Language:  "en",
 		URL:       "https://cdn2.steamgriddb.com/file/sgdb-cdn/hero/b.png",
 		Thumb:     "https://cdn2.steamgriddb.com/file/sgdb-cdn/hero_thumb/b.jpg",
@@ -65,15 +65,15 @@ func TestHeroServiceByPlatformID(t *testing.T) {
 	)
 
 	heroes, err := client.Heroes.ByPlatformID(PlatformSteam, []string{"123456789"}, nil)
-	expectedImage := Image{
+	expectedImage := Hero{
 		ID:        123456789,
 		Score:     0,
-		Style:     StyleAlternate,
+		Style:     StylesHeroAlternate,
 		Width:     1920,
 		Height:    620,
 		Nsfw:      false,
 		Humor:     false,
-		Mime:      MimePNG,
+		Mime:      MimeHeroPNG,
 		Language:  "en",
 		URL:       "https://cdn2.steamgriddb.com/file/sgdb-cdn/hero/b.png",
 		Thumb:     "https://cdn2.steamgriddb.com/file/sgdb-cdn/hero_thumb/b.jpg",
